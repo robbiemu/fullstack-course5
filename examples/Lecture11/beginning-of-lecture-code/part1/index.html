@@ -10,8 +10,9 @@
   <body>
     <h1>Expressions and Interpolation</h1>
     <div ng-controller='MsgController'>
-      Message is: <br>
-
+      <h3>Message</h3>
+      <i>from {{name}} on {{date||"{dd/mm/yy}"}}</i>
+      <p>{{sayMessage()}}</p>
     </div>
   </body>
 </html>

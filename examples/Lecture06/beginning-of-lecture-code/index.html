@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html >
   <head>
     <meta charset="utf-8">
     <script src="angular.min.js"></script>
@@ -7,14 +7,14 @@
     <style>body { font-size: 1.3em; }</style>
     <title>Name Calculator</title>
   </head>
-  <body>
+  <body ng-app="NameCalculator">
     <h1>Name Calculator</h1>
-    <div>
+    <div ng-controller="NameCalculatorController">
       <div>
         Your name:
-        <input type="text">
+        <input type="text" ng-model="name" ng-keyup="updateNumeric()" />
       </div>
-      <div> Total Numeric value of person's name is: </div>
+      <div> Total Numeric value of person's name is: {{total}}</div>
     </div>
   </body>
 </html>
