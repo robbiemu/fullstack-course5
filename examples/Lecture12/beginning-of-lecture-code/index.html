@@ -14,6 +14,7 @@
       {{sayMessage()}}
       <div>
         <button ng-click="feedYaakov()">Feed Yaakov</button>
+        <p>Cost {{ cookieCost | currency : '#bla' : 4 }}</p>
         <br>
 
         <img ng-src="images/yaakov_{{stateOfBeing}}.png">

@@ -8,9 +8,9 @@ CounterController.$inject = ['$scope'];
 function CounterController($scope) {
   $scope.counter = 0;
   $scope.onceCounter = 0;
-  $scope.name= 'yo'
+  $scope.value= 'yo'
 
-  $scope.showNumberOfWatchers = function () {
+  $scope.getValue = function () {
     console.log(`watchers: ${$scope.$$watchersCount}`)
   };
 
@@ -22,14 +22,13 @@ function CounterController($scope) {
     $scope.counter++
   };
 
-// no $$ or $watch off scope in controller
-  $scope.$watch(function(){console.log('digest loop fired!')})
+// no $$_foo_ or $watch off scope in controller
+ // $scope.$watch(function(){console.log('digest loop fired!')})
 
 /*
   $scope.$watch('counter', function(n,o){
     console.log(`new${n} old${o}`)
   })
-
   $scope.$watch('onceCounter', function(n,o){
     console.log(`1: new${n} old${o}`)
   })
