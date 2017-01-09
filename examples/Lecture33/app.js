@@ -17,6 +17,7 @@ angular.module('ShoppingListComponentApp', [])
 ShoppingListComponentController.$inject = ['$scope', '$element']
 function ShoppingListComponentController($scope, $element) {
   var $ctrl = this;
+  let totalItems;
 
   $ctrl.cookiesInList = function () {
     for (var i = 0; i < $ctrl.items.length; i++) {
@@ -34,6 +35,7 @@ function ShoppingListComponentController($scope, $element) {
   };
 
   $ctrl.$onInit = function () {
+    totalItems = 0;
     console.log("We are in $onInit()");
   };
 
@@ -41,7 +43,7 @@ function ShoppingListComponentController($scope, $element) {
     console.log("Changes: ", changeObj);
   }
 
-  $ctrl.$postLink = function () {
+/*  $ctrl.$postLink = function () {
     $scope.$watch('$ctrl.cookiesInList()', function (newValue, oldValue) {
       console.log($element);
       if (newValue === true) {
@@ -55,7 +57,18 @@ function ShoppingListComponentController($scope, $element) {
         warningElem.slideUp(900);
       }
     });
+  }; */
+
+  $ctrl.$doCheck = function () {
+    console.log(`did check ${$ctrl.items.length}/${totalItems}`)
+    if ($ctrl.cookiesInList()) {
+      totalItems = $ctrl.items.length
+      $element.find('div.error').slideDown(900)
+    } else {
+      $element.find('div.error').slideUp(900)
+    }
   };
+
 }
 
 
